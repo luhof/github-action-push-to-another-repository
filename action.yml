@@ -20,7 +20,6 @@ inputs:
   destination-directory:
     description: '[Optional] Destination folder'
     required: false
-    default: ''
   target-branch:
     description: '[Optional] set target branch name for the destination repository. Defaults to "master"'
     default: 'master'
