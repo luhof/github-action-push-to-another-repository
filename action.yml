@@ -4,6 +4,9 @@ inputs:
   source-directory:
     description: 'Source directory from the origin directory'
     required: true
+  destination-directory:
+    description: 'Destination folder'
+    required: true
   destination-github-username:
     description: 'Name of the destination username/organization'
     required: true
@@ -17,9 +20,6 @@ inputs:
     description: '[Optional] Username/organization for the destination repository'
     required: false
     default: ''
-  destination-directory:
-    description: '[Optional] Destination folder'
-    required: false
   target-branch:
     description: '[Optional] set target branch name for the destination repository. Defaults to "master"'
     default: 'master'
