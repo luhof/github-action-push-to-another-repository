@@ -17,6 +17,10 @@ inputs:
     description: '[Optional] Username/organization for the destination repository'
     required: false
     default: ''
+  destination-directory:
+    description: '[Optional] Destination folder'
+    required: false
+    default: ''
   target-branch:
     description: '[Optional] set target branch name for the destination repository. Defaults to "master"'
     default: 'master'
@@ -30,6 +34,7 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.source-directory }}
+    - ${{ inputs.destination-directory }}
     - ${{ inputs.destination-github-username }}
     - ${{ inputs.destination-repository-name }}
     - ${{ inputs.user-email }}

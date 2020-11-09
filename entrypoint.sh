@@ -5,12 +5,13 @@ set -u  # script fails if trying to access to an undefined variable
 
 echo "Starts"
 SOURCE_DIRECTORY="$1"
-DESTINATION_GITHUB_USERNAME="$2"
-DESTINATION_REPOSITORY_NAME="$3"
-USER_EMAIL="$4"
-DESTINATION_REPOSITORY_USERNAME="$5"
-TARGET_BRANCH="$6"
-COMMIT_MESSAGE="$7"
+DESTINATION_DIRECTORY="$2"
+DESTINATION_GITHUB_USERNAME="$3"
+DESTINATION_REPOSITORY_NAME="$4"
+USER_EMAIL="$5"
+DESTINATION_REPOSITORY_USERNAME="$6"
+TARGET_BRANCH="$7"
+COMMIT_MESSAGE="$8"
 
 if [ -z "$DESTINATION_REPOSITORY_USERNAME" ]
 then
@@ -26,14 +27,15 @@ git config --global user.name "$DESTINATION_GITHUB_USERNAME"
 git clone --single-branch --branch "$TARGET_BRANCH" "https://$API_TOKEN_GITHUB@github.com/$DESTINATION_REPOSITORY_USERNAME/$DESTINATION_REPOSITORY_NAME.git" "$CLONE_DIR"
 ls -la "$CLONE_DIR"
 
-echo "Cleaning destination repository of old files"
+
+#echo "No destination directory. Cleaning destination repository of old files"
 # Copy files into the git and deletes all git
-find "$CLONE_DIR" | grep -v "^$CLONE_DIR/\.git" | grep -v "^$CLONE_DIR$" | xargs rm -rf # delete all files (to handle deletions)
-ls -la "$CLONE_DIR"
+#find "$CLONE_DIR" | grep -v "^$CLONE_DIR/\.git" | grep -v "^$CLONE_DIR$" | xargs rm -rf # delete all files (to handle deletions)
+#ls -la "$CLONE_DIR"
 
 echo "Copying contents to git repo"
-cp -r "$SOURCE_DIRECTORY"/* "$CLONE_DIR"
-cd "$CLONE_DIR"
+cp -r "$SOURCE_DIRECTORY"/* "$CLONE_DIR" /* $DESTINATION_DIRECTORY
+cd "$CLONE_DIR" /* $DESTINATION_DIRECTORY
 ls -la
 
 echo "Adding git commit"

@@ -1,5 +1,9 @@
 # github-action-push-to-another-repository
 
+## Luhof's fork
+Crappy fork where I try to push files in directory instead of erasing everything.
+
+<hr/>
 Used to push generated files from a directory from Git Action step into another repository on Github. By design it deletes the files from the destination directory as it is meant to "publish" a set generated files.
 
 E.g.
@@ -26,6 +30,9 @@ The email that will be used for the commit in the destination-repository-name.
 
 ### `destination-repository-username` (argument) [optional]
 The Username/Organization for the destination repository, if different from `destination-github-username`. For the repository `https://github.com/cpina/push-to-another-repository-output` is `cpina`.
+
+### `destination-directory` (argument) [optional]
+The Repository where to push files. 
 
 ### `target-branch` (argument) [optional]
 The branch name for the destination repository, if different from `master`.
